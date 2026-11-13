@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teacher Dashboard - Academic Query Portal">
+    <title>Teacher Dashboard | Academic Query Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header id="site-header">
+    <div class="header-inner">
+        <div class="brand">
+            <span class="brand-icon">&#127979;</span>
+            <span class="brand-name">Teacher Dashboard</span>
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav aria-label="Main navigation" id="mainNav">
+            <a href="index.html"   class="nav-link">&#8592; Student Portal</a>
+            <a href="#dashboard"   class="nav-link active">Dashboard</a>
+            <a href="#all-queries" class="nav-link">All Queries</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <!-- Dashboard Stats -->
+    <section id="dashboard">
+        <span class="section-label" style="display:block;text-align:center;margin-bottom:12px;">Overview</span>
+        <h2>Dashboard Overview</h2>
+        <p class="section-sub" style="text-align:center;color:var(--text-mid);margin-bottom:36px;">Real-time statistics of all student queries submitted through the portal.</p>
+
+        <div class="dashboard-stats">
+            <div class="stat-card stat-total">
+                <span class="stat-icon">&#128203;</span>
+                <h3>Total Queries</h3>
+                <p id="totalQueries">0</p>
+            </div>
+            <div class="stat-card stat-pending">
+                <span class="stat-icon">&#9201;</span>
+                <h3>Pending</h3>
+                <p id="pendingQueries">0</p>
+            </div>
+            <div class="stat-card stat-progress">
+                <span class="stat-icon">&#9881;</span>
+                <h3>In Progress</h3>
+                <p id="progressQueries">0</p>
+            </div>
+            <div class="stat-card stat-resolved">
+                <span class="stat-icon">&#9989;</span>
+                <h3>Resolved</h3>
+                <p id="resolvedQueries">0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Queries Table -->
+    <section id="all-queries">
+        <span class="section-label" style="display:block;text-align:center;margin-bottom:12px;">Manage</span>
+        <h2>All Student Queries</h2>
+
+        <!-- Teacher Controls -->
+        <div class="teacher-controls">
+            <input type="search" id="teacherSearch" placeholder="&#128269; Search by name, ID, keyword..." aria-label="Search queries">
+            <select id="teacherFilterCat" aria-label="Filter by category">
+                <option value="">All Categories</option>
+                <option value="Assignments">Assignments</option>
+                <option value="Lectures">Lectures</option>
+                <option value="Practicals">Practicals</option>
+                <option value="Examinations">Examinations</option>
+                <option value="Attendance">Attendance</option>
+                <option value="Result">Result / Grades</option>
+                <option value="Other">Other</option>
+            </select>
+            <select id="teacherFilterStatus" aria-label="Filter by status">
+                <option value="">All Statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+            </select>
+            <select id="teacherFilterPriority" aria-label="Filter by priority">
+                <option value="">All Priorities</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            <button class="btn btn-danger btn-sm" id="clearAllTeacherBtn">&#128465; Clear All Data</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Query ID</th>
+                        <th>Student</th>
+                        <th>Reg. No.</th>
+                        <th>Course</th>
+                        <th>Category</th>
+                        <th>Priority</th>
+                        <th>Subject</th>
+                        <th>Description</th>
+                        <th>Submitted At</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="teacherQueries">
+                    <!-- Rows injected by teacher.js -->
+                </tbody>
+            </table>
+        </div>
+        <p id="tableMsg" style="text-align:center;margin-top:20px;color:var(--text-mid);font-size:14px;"></p>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="brand-icon">&#127979;</span>
+            <strong>Teacher Dashboard</strong>
+        </div>
+        <p>&copy; 2026 Academic Query Portal. Faculty View.</p>
+    </div>
+</footer>
+
+<button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top">&#8679;</button>
+
+<script src="teacher.js"></script>
+</body>
+</html>
